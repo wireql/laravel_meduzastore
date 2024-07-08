@@ -29,9 +29,9 @@
             <x-product />
         </div>
         <div class="flex justify-center">
-            <div class="bg-white flex flex-col border border-x-gray-200 rounded-lg sm:rounded-3xl text-xs sm:text-lg font-semibold py-2 px-6 sm:py-5 sm:px-14 w-max my-8 text-center">
+            <a href="{{route('products')}}" class="bg-white flex flex-col border border-x-gray-200 rounded-lg sm:rounded-3xl text-xs sm:text-lg font-semibold py-2 px-6 sm:py-5 sm:px-14 w-max my-8 text-center">
                 Посмотреть больше товаров
-            </div>
+            </a>
         </div>
 
         {{-- Advance block --}}

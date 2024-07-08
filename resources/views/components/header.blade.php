@@ -5,7 +5,7 @@
     </div>
 </div>
 
-<div x-data="{open: false}">
+<div>
     <div class="w-full bg-black">
         <div class="container px-5 mx-auto flex py-6 items-center justify-between">
             <a href="{{route('index')}}">
@@ -22,11 +22,19 @@
                     <img src="{{asset('storage/images/web/svg/cart.svg')}}" alt="cart">
                 </a>
     
-                
-                <div class="flex items-center gap-3 hover:cursor-pointer" id="userLkModal">
-                    <img src="{{asset('storage/images/web/svg/user.svg')}}" alt="user">
-                    <div class="text-white text-base font-semibold hidden md:block hover:text-lime-400">Личный кабинет</div>
-                </div>
+                @guest
+                    <div @click="authModal = !authModal" class="flex items-center gap-3 hover:cursor-pointer" id="userLkModal">
+                        <img src="{{asset('storage/images/web/svg/user.svg')}}" alt="user">
+                        <div class="text-white text-base font-semibold hidden md:block hover:text-lime-400">Личный кабинет</div>
+                    </div>
+                @endguest
+
+                @auth
+                    <a href="{{route('profile')}}" class="flex items-center gap-3 hover:cursor-pointer">
+                        <img src="{{asset('storage/images/web/svg/user.svg')}}" alt="user">
+                        <div class="text-white text-base font-semibold hidden md:block hover:text-lime-400">Личный кабинет</div>
+                    </a>
+                @endauth
     
     
                 <div class="block lg:hidden" id="menu-icon">
