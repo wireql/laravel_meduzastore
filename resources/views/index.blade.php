@@ -23,10 +23,9 @@
         {{-- Products list --}}
         <div class="text-4xl sm:text-5xl font-semibold mt-12 mb-9" id="catalog">Купить в один клик</div>            
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <x-product />
-            <x-product />
-            <x-product />
-            <x-product />
+            @foreach ($products as $item)
+                <x-product :item="$item" />
+            @endforeach
         </div>
         <div class="flex justify-center">
             <a href="{{route('products')}}" class="bg-white flex flex-col border border-x-gray-200 rounded-lg sm:rounded-3xl text-xs sm:text-lg font-semibold py-2 px-6 sm:py-5 sm:px-14 w-max my-8 text-center">
@@ -51,10 +50,9 @@
         {{-- Product discount list --}}
         <div class="text-4xl sm:text-5xl font-semibold mt-12 mb-9">Убавили цену для вас</div>            
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <x-product />
-            <x-product />
-            <x-product />
-            <x-product />
+            @foreach ($products_discount as $item)
+                <x-product :item="$item" />
+            @endforeach
         </div>
 
         {{-- Tradein block --}}
@@ -67,5 +65,12 @@
     </div>
 
     <x-footer />
+
+    <script>
+        $(document).ready(function() {
+            $('.flickity-button').addClass('hidden');
+            $('.flickity-page-dots').addClass('hidden');
+        })
+    </script>
 
 @endsection

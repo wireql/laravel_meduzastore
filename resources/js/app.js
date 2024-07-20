@@ -8,6 +8,51 @@ $(document).ready(function() {
         }
     });
 
+    $('#addToCart').click(function() {
+
+        $.ajax({
+            url: '/cart/add/' + $(this).data('item_id'),
+            type: 'POST',
+            success: function(response) {
+                
+                document.querySelector('body').__x.$data.simpleModal = true
+
+            },
+            error: function(xhr) {
+
+                //
+
+            }
+        });
+
+    })
+
+    $('#cartForm').submit(function(event) {
+        event.preventDefault();
+
+        let data = $(this).serialize();
+        let delivery_type, pay_type;
+
+        if($('#delivery-type1').hasClass('active')) {
+            delivery_type = 'spb';
+        }
+
+        if($('#delivery-type2').hasClass('active')) {
+            delivery_type = 'sdek';
+        }
+
+        if($('#pay-type1').hasClass('active')) {
+            pay_type = 'card';
+        }
+
+        if($('#pay-type2').hasClass('active')) {
+            pay_type = 'cashless';
+        }
+        
+        console.log(delivery_type + " " + pay_type);
+
+    })
+
     $('#authForm').submit(function(event) {
         event.preventDefault();
 

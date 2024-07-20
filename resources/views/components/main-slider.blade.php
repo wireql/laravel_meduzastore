@@ -20,7 +20,7 @@
             <div id="img">
                 <img class="max-w-72 sm:max-w-full" src="{{ asset('storage/images/web/svg/main-slider-img1.svg') }}" alt="slider1">
                 <div class="sm:hidden">
-                    <div class="bg-black text-white w-max mx-auto mt-3 py-2 px-5 rounded-xl text-base text-lime-300 font-semibold">Акция месяца</div>
+                    <div class="bg-black w-max mx-auto mt-3 py-2 px-5 rounded-xl text-base text-lime-300 font-semibold">Акция месяца</div>
                 </div>
             </div>
 
